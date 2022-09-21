@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"modulo/1-pacotes/auxiliar"
+	"modulo/auxiliar"
 
 	"github.com/badoux/checkmail"
 )
@@ -10,6 +10,7 @@ import (
 func main() {
 	fmt.Println("Escrevendo do arquivo main")
 	auxiliar.Escrever()
-	erro := checkmail.ValidateFormat("brunovicenteb@gmail.com")
+
+	erro := checkmail.ValidateFormat("devbook@gmail.com")
 	fmt.Println(erro)
 }
