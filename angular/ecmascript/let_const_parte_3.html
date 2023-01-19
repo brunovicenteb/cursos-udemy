@@ -2,14 +2,14 @@
 
 <body>
     <script>
+        const SERIE = 'The Walking Dead'
+        console.log('global:', SERIE)
         function escopoFuncao() {
+            console.log('funcao:', SERIE)
             if (true) {
                 if (true) {
-                    var serie = 'Friends'
-                    let serie2 = 'Game of Thrones'
-                    console.log('bloco', serie2)
                 }
-                console.log('bloco', serie)
+                console.log('bloco dentro da função:', SERIE)
             }
         }
 
