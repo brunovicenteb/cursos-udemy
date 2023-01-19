@@ -1,0 +1,22 @@
+<html>
+    <body>
+        <script>
+            function escopoFuncao() {
+                console.log('global', serie)
+            }
+
+            if (true){
+                if (true){
+                    var serie = 'Game of Thrones'
+                }
+            }
+
+            console.log('global', serie)
+
+            {
+                console.log('global', serie)
+                escopoFuncao()
+            }
+        </script>
+    </body>
+</html> 
