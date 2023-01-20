@@ -29,7 +29,7 @@ class Concessionaria {
         this.endereco = endereco
     }
 
-    public fornecedrEndereco(): string {
+    public fornecerEndereco(): string {
         return this.endereco;
     }
 
@@ -38,5 +38,35 @@ class Concessionaria {
     }
 }
 
-let concessionaria = new Concessionaria('Avenida Paulista')
+class Pessoa {
+    private nome: string
+    private carro: any
+    private carroPreferido: any
+
+    constructor(nome: string, carroPreferido: string) {
+        this.nome = nome
+        this.carroPreferido = carroPreferido
+    }
+
+    public dizerNome(): string {
+        return this.nome;
+    }
+
+    public dizerCarroPreferido(): any {
+        return this.carroPreferido
+    }
+
+    public dizerCarrQueTem(): string {
+        return this.carro
+    }
+
+    public comprarCarro(carro: any): void {
+        this.carro = carro
+    }
+}
+
+let concessionaria = new Pessoa('Bruno','Ferrari')
 console.log(concessionaria);
+console.log(concessionaria.dizerCarrQueTem());
+concessionaria.comprarCarro('BMW')
+console.log(concessionaria.dizerCarrQueTem());
