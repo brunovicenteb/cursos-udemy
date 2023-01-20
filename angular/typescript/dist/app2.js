@@ -54,3 +54,11 @@ let listaDeCarros = [carrA, carrB, carrC];
 let concessionaria = new Concessionaria('Av Paulista', listaDeCarros);
 /* --- exibir a lista de carros ---*/
 console.log(concessionaria.mostrarListaDeCarros());
+/* --- comprar o carro ---*/
+let cliente = new Pessoa('João', 'veloster');
+concessionaria.mostrarListaDeCarros().map((carro) => {
+    if (carro['modelo'] == cliente.dizerCarroPreferido()) {
+        cliente.comprarCarro(carro);
+    }
+});
+console.log(cliente.dizerCarrQueTem());
