@@ -1,0 +1,25 @@
+<html>
+
+<body>
+    <script>
+        // let tituloArtigo = 'Como utilizar o operador rest/spread'
+        // console.log(tituloArtigo)
+        // console.log(...tituloArtigo)
+        // console.log([...tituloArtigo])
+        // console.log({ ...tituloArtigo })
+
+        //array
+        let listaCursos1 = ['Node JS e MongoDB', 'Angular']
+        let listaCursos2 = ['Solid', 'Laravel']
+        let listaCompletaCursos = ['Web Completo', 'Banco de Dados',
+            ...listaCursos1, ...listaCursos2]
+        console.log(listaCompletaCursos)
+
+        //objetos
+        let pessoa = {nome: 'Pedro', idade: 32}
+        let cadastoCompleto = {endereco: 'Rua Abc', ...pessoa}
+        console.log(cadastoCompleto)
+    </script>
+</body>
+
+</html>
