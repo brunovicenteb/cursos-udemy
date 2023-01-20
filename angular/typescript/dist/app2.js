@@ -15,10 +15,16 @@ class Carro {
         return this.velocidade;
     }
 }
-let carroA = new Carro('Veloster', 3);
-console.log(carroA);
-carroA.acelerar();
-console.log(carroA);
-carroA.acelerar();
-carroA.acelerar();
-console.log(carroA);
+class Concessionaria {
+    constructor(endereco) {
+        this.endereco = endereco;
+    }
+    fornecedrEndereco() {
+        return this.endereco;
+    }
+    mostrarListaDeCarros() {
+        return this.listaDeCarros;
+    }
+}
+let concessionaria = new Concessionaria('Avenida Paulista');
+console.log(concessionaria);
