@@ -1,64 +1,25 @@
 "use strict";
-class Carro {
-    constructor(modelo, numeroDePortas) {
-        this.velocidade = 0;
-        this.modelo = modelo;
-        this.numeroDePortas = numeroDePortas;
-    }
-    acelerar() {
-        this.velocidade += 10;
-    }
-    parar() {
-        this.velocidade = 0;
-    }
-    velocidadeAtual() {
-        return this.velocidade;
-    }
-}
-class Concessionaria {
-    constructor(endereco, listaDeCarros) {
-        this.endereco = endereco;
-        this.listaDeCarros = listaDeCarros;
-    }
-    fornecerEndereco() {
-        return this.endereco;
-    }
-    mostrarListaDeCarros() {
-        return this.listaDeCarros;
-    }
-}
-class Pessoa {
-    constructor(nome, carroPreferido) {
-        this.nome = nome;
-        this.carroPreferido = carroPreferido;
-    }
-    dizerNome() {
-        return this.nome;
-    }
-    dizerCarroPreferido() {
-        return this.carroPreferido;
-    }
-    dizerCarrQueTem() {
-        return this.carro;
-    }
-    comprarCarro(carro) {
-        this.carro = carro;
-    }
-}
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const carro_1 = __importDefault(require("./carro"));
+const pessoa_1 = __importDefault(require("./pessoa"));
+const concessionaria_1 = __importDefault(require("./concessionaria"));
 /* --- criar carros ---*/
-let carrA = new Carro('dodge journey', 4);
-let carrB = new Carro('veloster', 3);
-let carrC = new Carro('cerrato', 4);
+let carrA = new carro_1.default('dodge journey', 4);
+let carrB = new carro_1.default('veloster', 3);
+let carrC = new carro_1.default('cerrato', 4);
 /* --- montar a lista de carros da concessionária ---*/
 let listaDeCarros = [carrA, carrB, carrC];
-let concessionaria = new Concessionaria('Av Paulista', listaDeCarros);
+let concessionaria = new concessionaria_1.default('Av Paulista', listaDeCarros);
 /* --- exibir a lista de carros ---*/
 console.log(concessionaria.mostrarListaDeCarros());
 /* --- comprar o carro ---*/
-let cliente = new Pessoa('João', 'veloster');
+let cliente = new pessoa_1.default('João', 'veloster', new carro_1.default('veloster', 3));
 concessionaria.mostrarListaDeCarros().map((carro) => {
     if (carro['modelo'] == cliente.dizerCarroPreferido()) {
         cliente.comprarCarro(carro);
     }
 });
-console.log(cliente.dizerCarrQueTem());
+console.log(cliente.dizerCarroQueTem());
