@@ -1,4 +1,4 @@
-import Carro from "./carro";
+import Carro from "./Carro";
 import ConsessionariaInterface from "./ConsessionariaInterface";
 
 export default class Concessionaria implements ConsessionariaInterface {

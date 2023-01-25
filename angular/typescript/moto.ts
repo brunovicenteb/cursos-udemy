@@ -1,4 +1,4 @@
-import Veiculo from "./veiculo"
+import Veiculo from "./Veiculo"
 
 export default class Moto extends Veiculo {
     public acelerar(): void {

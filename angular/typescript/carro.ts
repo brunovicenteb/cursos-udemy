@@ -1,4 +1,4 @@
-import Veiculo from "./veiculo"
+import Veiculo from "./Veiculo"
 
 export default class Carro extends Veiculo {
     private numeroDePortas: number

@@ -1,6 +1,6 @@
-import Carro from './carro'
-import Moto from './moto'
-import Concessionaria from './concessionaria'
+import Carro from './Carro'
+import Moto from './Moto'
+import Concessionaria from './Concessionaria'
 
 /* --- criar carros ---*/
 let carro = new Carro('veloster', 3)
