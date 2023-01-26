@@ -29,10 +29,15 @@ export class PainelComponent {
         this.reiniciarJogo()
       }
     } else {
-      this.rodada++;
-      this.resposta = ""
-      this.progresso += (100 / FRASES.length);
-      this.rodadaFrase = this.progresso === 100 ? {} as Frase : FRASES[this.rodada]
+      if (this.rodada == FRASES.length) {
+        alert("Parabéns, você concluiu as traduções com sucesso!")
+      } else {
+
+        this.rodada++;
+        this.resposta = ""
+        this.progresso += (100 / FRASES.length);
+        this.rodadaFrase = this.progresso === 100 ? {} as Frase : FRASES[this.rodada]
+      }
     }
   }
 
