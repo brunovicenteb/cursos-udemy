@@ -33,11 +33,10 @@ export class PainelComponent implements OnDestroy {
         this.encerrarJogo.emit(false);
       }
     } else {
+      this.rodada++;
       if (this.rodada == FRASES.length) {
         this.encerrarJogo.emit(true);
       } else {
-
-        this.rodada++;
         this.resposta = ""
         this.progresso += (100 / FRASES.length);
         this.rodadaFrase = this.progresso === 100 ? {} as Frase : FRASES[this.rodada]

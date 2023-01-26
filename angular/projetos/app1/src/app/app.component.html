@@ -4,10 +4,17 @@
 </div>
 <ng-template #fimDeJogo>
     <div class="container" style="margin-top: 50px">
-        <div class="row">
+        <div class="row" *ngIf="vitoria; else derrota">
             <div class="col">
-                <h3 style="color: red">Ops... Infelizmente você perdeu! =/</h3>
+                <h3 style="color: green">Parabéns... Você venceu o desafio! =D</h3>
             </div>
         </div>
+        <ng-template #derrota>
+            <div class="row">
+                <div class="col">
+                    <h3 style="color: red">Ops... Infelizmente você perdeu! =/</h3>
+                </div>
+            </div>
+        </ng-template>
     </div>
 </ng-template>
