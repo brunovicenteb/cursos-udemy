@@ -21,10 +21,11 @@ export class PainelComponent {
   }
 
   public verificarResposta(): void {
-    if (this.resposta === this.rodadaFrase.frasePtBr) {
+    if (this.resposta.toLocaleLowerCase() === this.rodadaFrase.frasePtBr.toLocaleLowerCase()) {
       this.rodada++;
+      this.resposta = ""
       this.progresso += (100 / FRASES.length);
-      this.rodadaFrase = FRASES[this.rodada]
+      this.rodadaFrase = this.progresso === 100 ? {} as Frase : FRASES[this.rodada]
     }
   }
 }
