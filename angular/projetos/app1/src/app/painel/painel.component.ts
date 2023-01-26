@@ -1,4 +1,4 @@
-import { Component } from "@angular/core"
+import { Component, EventEmitter, Output } from "@angular/core"
 import { Frase } from "../shared/frase.model"
 import { FRASES } from "./frases-mock"
 
@@ -15,6 +15,7 @@ export class PainelComponent {
   public rodadaFrase: Frase = FRASES[this.rodada]
   public progresso: number = 0
   public tentativas: number = 3
+    @Output() public encerrarJogo: EventEmitter<boolean> = new EventEmitter()
 
   public atualizaResposta(resposta: Event): void {
     let inputResposta = <HTMLInputElement>(resposta.target)
@@ -25,12 +26,11 @@ export class PainelComponent {
     if (this.resposta.toLocaleLowerCase() !== this.rodadaFrase.frasePtBr.toLocaleLowerCase()) {
       this.tentativas--
       if (this.tentativas == -1) {
-        alert("Você perdeu o jogo.")
-        this.reiniciarJogo()
+        this.encerrarJogo.emit(false);
       }
     } else {
       if (this.rodada == FRASES.length) {
-        alert("Parabéns, você concluiu as traduções com sucesso!")
+        this.encerrarJogo.emit(true);
       } else {
 
         this.rodada++;
