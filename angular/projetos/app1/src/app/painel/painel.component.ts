@@ -11,14 +11,18 @@ export class PainelComponent {
   public frases: Frase[] = FRASES
   public instrucao: string = "Traduza a frase:"
   public resposta: string = ""
+  public rodada: number = 0
+  public rodadaFrase: Frase = FRASES[this.rodada]
 
   public atualizaResposta(resposta: Event): void {
     let inputResposta = <HTMLInputElement>(resposta.target)
     this.resposta = inputResposta.value
-    //console.log(this.resposta)
   }
 
   public verificarResposta(): void {
-    console.log("Resposta: ", this.resposta)
+    if (this.resposta === this.rodadaFrase.frasePtBr){
+      this.rodada++;
+      this.rodadaFrase = FRASES[this.rodada]
+    }
   }
 }
