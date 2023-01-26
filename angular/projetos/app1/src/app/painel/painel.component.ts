@@ -11,7 +11,7 @@ export class PainelComponent {
   public frases: Frase[] = FRASES
   public instrucao: string = "Traduza a frase:"
 
-  constructor(){
-    console.log(this.frases);
+  public atualizaResposta(): void {
+    console.log("Teste")
   }
 }
