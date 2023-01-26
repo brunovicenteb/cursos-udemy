@@ -14,6 +14,7 @@ export class PainelComponent {
   public rodada: number = 0
   public rodadaFrase: Frase = FRASES[this.rodada]
   public progresso: number = 0
+  public tentativas: number = 3
 
   public atualizaResposta(resposta: Event): void {
     let inputResposta = <HTMLInputElement>(resposta.target)
@@ -21,11 +22,25 @@ export class PainelComponent {
   }
 
   public verificarResposta(): void {
-    if (this.resposta.toLocaleLowerCase() === this.rodadaFrase.frasePtBr.toLocaleLowerCase()) {
+    if (this.resposta.toLocaleLowerCase() !== this.rodadaFrase.frasePtBr.toLocaleLowerCase()) {
+      this.tentativas--
+      if (this.tentativas == -1) {
+        alert("Você perdeu o jogo.")
+        this.reiniciarJogo()
+      }
+    } else {
       this.rodada++;
       this.resposta = ""
       this.progresso += (100 / FRASES.length);
       this.rodadaFrase = this.progresso === 100 ? {} as Frase : FRASES[this.rodada]
     }
+  }
+
+  private reiniciarJogo(): void {
+    this.rodada = 0
+    this.tentativas = 3
+    this.resposta = ""
+    this.progresso = 0
+    this.rodadaFrase = this.progresso === 100 ? {} as Frase : FRASES[this.rodada]
   }
 }
