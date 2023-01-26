@@ -13,4 +13,9 @@ export class AppComponent {
     this.vitoria = vitoria;
     this.jogoEmAndamento = false
   }
+
+  public reiniciarJogo(): void {
+    this.jogoEmAndamento = true
+    this.vitoria = false
+  }
 }
