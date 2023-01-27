@@ -59,7 +59,7 @@ export class OfertasService {
     }
 
     public getOfertas2(): Promise<Oferta[]> {
-        return new Promise((resolve, reject) => {
+        return new Promise<Oferta[]>((resolve, reject) => {
             let deuCerto = true
             if (deuCerto) {
                 setTimeout(() => resolve(this.ofertas), 3000);
@@ -67,13 +67,19 @@ export class OfertasService {
                 reject({ codigoErro: 404, mensagemErro: "Servidor não encontrado." })
             }
         })
-            // .then((ofertas: Oferta[]) => {
-            //     console.log("Primeiro then")
-            //     return ofertas
-            // })
-            // .then((ofertas: Oferta[]) => {
-            //     console.log("Segundo then")
-            //     return ofertas
-            // })
+            .then((ofertas: Oferta[]) => {
+                console.log("Primeiro then")
+                return ofertas
+            })
+            .then((ofertas: Oferta[]) => {
+                console.log("Segundo then")
+                return new Promise<Oferta[]>((resolve2, reject2) => {
+                    setTimeout(() => resolve2(ofertas), 3000);
+                })
+            })
+            .then((ofertas: Oferta[]) => {
+                console.log("Terceiro then executado após 03 segunods porque estava aguardando um promisse.")
+                return ofertas
+            })
     }
 }
