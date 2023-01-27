@@ -1,3 +1,5 @@
+import { OfertaImagem } from "./imagemOferta.model"
+
 export class Oferta {
     public id: number | undefined
     public categoria: string | undefined
@@ -6,5 +8,5 @@ export class Oferta {
     public anunciante: string | undefined
     public valor: number | undefined
     public destaque: true | undefined
-    public imagens: Array<object> | undefined
+    public imagens: Array<OfertaImagem> = []
 }
