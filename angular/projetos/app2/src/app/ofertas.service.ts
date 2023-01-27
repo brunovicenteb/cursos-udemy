@@ -2,7 +2,7 @@ import { ResolveEnd } from "@angular/router"
 import { Oferta } from "./shared/oferta.model"
 
 export class OfertasService {
-    public ofertas: Array<Oferta> =
+    public ofertas: Oferta[] =
         [
             {
                 id: 1,
@@ -60,7 +60,20 @@ export class OfertasService {
 
     public getOfertas2(): Promise<Oferta[]> {
         return new Promise((resolve, reject) => {
-            resolve(this.ofertas)   
+            let deuCerto = true
+            if (deuCerto) {
+                setTimeout(() => resolve(this.ofertas), 3000);
+            } else {
+                reject({ codigoErro: 404, mensagemErro: "Servidor não encontrado." })
+            }
         })
+            // .then((ofertas: Oferta[]) => {
+            //     console.log("Primeiro then")
+            //     return ofertas
+            // })
+            // .then((ofertas: Oferta[]) => {
+            //     console.log("Segundo then")
+            //     return ofertas
+            // })
     }
 }

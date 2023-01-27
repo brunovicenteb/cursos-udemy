@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.ofertasService.getOfertas2()
       .then((ofertas) => {
+        console.log('a função aconteceu após  3 segundos')
         this.ofertas = ofertas
       })
       .catch((param: any) => {
