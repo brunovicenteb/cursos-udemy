@@ -60,7 +60,7 @@ export class OfertasService {
 
     public getOfertas2(): Promise<Oferta[]> {
         return new Promise((resolve, reject) => {
-            resolve(this.ofertas)
+            resolve(this.ofertas)   
         })
     }
 }
