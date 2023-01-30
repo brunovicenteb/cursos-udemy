@@ -13,4 +13,10 @@ export class OfertasService {
             .toPromise()
             .then((resposta: any) => resposta)
     }
+
+    public getOfertasPorCategira(categoria: string): Promise<Oferta[]> {
+        return this.hppt.get(`http://localhost:3000/ofertas?categoria=${categoria}`)
+            .toPromise()
+            .then((resposta: any) => resposta)
+    }
 }
