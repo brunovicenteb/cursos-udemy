@@ -13,10 +13,12 @@ export class RestaurantesComponent implements OnInit {
   constructor(private ofertaService: OfertasService) {
   }
 
+  public ofertas: Oferta[] | undefined
+
   ngOnInit(): void {
     this.ofertaService.getOfertasPorCategira('restaurante')
       .then((ofertas: Oferta[]) => {
-        console.log(ofertas)
+        this.ofertas = ofertas
       })
   }
 }
