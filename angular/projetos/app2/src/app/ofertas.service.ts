@@ -14,9 +14,15 @@ export class OfertasService {
             .then((resposta: any) => resposta)
     }
 
-    public getOfertasPorCategira(categoria: string): Promise<Oferta[]> {
+    public getOfertasPorCategoria(categoria: string): Promise<Oferta[]> {
         return this.hppt.get(`http://localhost:3000/ofertas?categoria=${categoria}`)
             .toPromise()
             .then((resposta: any) => resposta)
+    }
+
+    public getOfertaPorId(id: number): Promise<Oferta> {
+        return this.hppt.get(`http://localhost:3000/ofertas?id=${id}`)
+            .toPromise()
+            .then((resposta: any) => resposta.shift())
     }
 }

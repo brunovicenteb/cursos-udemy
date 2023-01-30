@@ -1,20 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
+import { OfertasService } from '../ofertas.service';
+import { Oferta } from '../shared/oferta.model';
 
 @Component({
   selector: 'app-oferta',
   templateUrl: './oferta.component.html',
-  styleUrls: ['./oferta.component.css']
+  styleUrls: ['./oferta.component.css'],
+  providers: [OfertasService]
 })
 export class OfertaComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) {
+  public oferta!: Oferta
+
+  constructor(private ofertaService: OfertasService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    //console.log(this.route.snapshot.params['id'])
-    this.route.params.subscribe((parametro: any) => {
-      console.log(parametro)
-    })
+    this.ofertaService.getOfertaPorId(this.route.snapshot.params['id'] as number)
+      .then((oferta: Oferta) => {
+        this.oferta = oferta
+      })
   }
 }
