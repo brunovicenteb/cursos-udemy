@@ -32,4 +32,10 @@ export class OfertasService {
             .toPromise()
             .then((resposta: any) => resposta[0].descricao)
     }
+
+    public getOndeFicaPorId(id: number): Promise<string> {
+        return this.hppt.get(`${URL_API}/onde-fica?id=${id}`)
+            .toPromise()
+            .then((resposta: any) => resposta[0].descricao)
+    }    
 }
