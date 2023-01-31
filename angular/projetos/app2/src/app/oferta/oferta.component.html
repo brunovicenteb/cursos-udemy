@@ -28,7 +28,7 @@
 
         <div class="row">
           <div class="col text-center">
-            <h1>R$ {{oferta.valor}}</h1>
+            <h1>{{oferta.valor}}</h1>
           </div>
         </div>
 
@@ -41,7 +41,26 @@
       </div>
 
     </div>
+
   </div>
-  <br />
-  <br />
+
+  <div class="row" style="margin-bottom: 25px; margin-bottom: 150px">
+    <div class="col">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#onde-fica"
+            type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Onde fica?</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#onde-usar"
+            type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Onde usar?</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="onde-fica" role="tabpanel">Texto "Onde fica"?</div>
+        <div class="tab-pane fade" id="onde-usar" role="tabpanel">Text "Como usar?"</div>
+      </div>
+    </div>
+  </div>
+  
 </div>
