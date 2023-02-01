@@ -23,10 +23,10 @@ export class OfertaComponent implements OnInit {
         this.oferta = oferta
       })
 
-    this.route.params.subscribe({
-      next: (v) => console.log('next: ', v),
-      error: (e) => console.error('next: ',e),
-      complete: () => console.info('Complete')
-    })
+    // this.route.params.subscribe({
+    //   next: (v) => console.log('next: ', v),
+    //   error: (e) => console.error('next: ',e),
+    //   complete: () => console.info('Complete')
+    // })
   }
 }
