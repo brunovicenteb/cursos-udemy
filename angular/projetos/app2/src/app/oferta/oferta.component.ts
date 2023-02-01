@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
+import { of } from 'rxjs';
 import { OfertasService } from '../ofertas.service';
 import { Oferta } from '../shared/oferta.model';
 
@@ -21,5 +22,11 @@ export class OfertaComponent implements OnInit {
       .then((oferta: Oferta) => {
         this.oferta = oferta
       })
+
+    this.route.params.subscribe({
+      next: (v) => console.log('next: ', v),
+      error: (e) => console.error('next: ',e),
+      complete: () => console.info('Complete')
+    })
   }
 }
