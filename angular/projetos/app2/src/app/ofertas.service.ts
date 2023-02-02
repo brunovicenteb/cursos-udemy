@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from "@angular/core";
 import { URL_API } from "./app.api";
 import { map, Observable } from "rxjs";
-import 'rxjs/add/operator/map';
 
 @Injectable()
 export class OfertasService {
@@ -42,7 +41,7 @@ export class OfertasService {
     }
 
     public pesquisaOfertas(termo: string): Observable<Oferta[]> {
-        return this.http.get(`${URL_API}/ofertas?descricao_oferta=${termo}`).pipe(
+        return this.http.get(`${URL_API}/ofertas?descricao_oferta_like=${termo}`).pipe(
             map((resposta) => <Oferta[]>resposta)
         )
     }
