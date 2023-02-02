@@ -40,10 +40,14 @@ export class OfertaComponent implements OnInit {
     let meuObservableTeste = new Observable((observer: Observer<number>) => {
       observer.next(1)
       observer.next(3)
+      observer.complete()
+      observer.next(3)
     })
 
-    meuObservableTeste.subscribe(
-      (resultado: number) => console.log(resultado + 10)
-    )
+    meuObservableTeste.subscribe({
+      next: (resultado: number) => console.log(resultado + 10),
+      error: (erro) => console.log(erro),
+      complete: () => console.log('Stream de eventos foi finalizada')
+    })
   }
 }
