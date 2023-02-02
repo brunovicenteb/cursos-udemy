@@ -24,7 +24,8 @@ export class TopoComponent implements OnDestroy {
     this.ofertas = this.ofertasService.pesquisaOfertas(termoDaBusca)
     this.subscription = this.ofertas.subscribe(
       (ofertas: Oferta[]) => console.log(ofertas),
-      (erro: any) => console.log('Erros status: ', erro.status)
+      (erro: any) => console.log('Erros status: ', erro.status),
+      () => console.log('Fluxo de eventos completo')
     )
   }
 }
