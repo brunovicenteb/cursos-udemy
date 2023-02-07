@@ -5,7 +5,8 @@ type Mutation {
 
     excluirUsuario(id: Int): Usuario
 
-    alterarUsuario(id: Int,
+    alterarUsuario(
+        id: Int!,
         nome: String,
         email: String,
         idade: Int): Usuario!
