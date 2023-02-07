@@ -10,7 +10,7 @@ const usuarios = [{
     nome: 'Rafael Junior',
     email: 'rafajun@wemail.com',
     idade: 31
-},{
+}, {
     id: 3,
     nome: 'Daniel Smith',
     email: 'danismi@uemail.com',
@@ -46,6 +46,7 @@ const typeDefs = gql`
         produtoEmDestaque: Produto
         numerosMegaSena: [Int!]!
         usuarios: [Usuario!]!
+        usuarioPorId(id: ID): Usuario
     }
 `
 
@@ -98,6 +99,11 @@ const resolvers = {
         },
         usuarios() {
             return usuarios
+        },
+        usuarioPorId(_, args) {
+            const sels = usuarios
+                .filter(u => u.id == args.id)
+            return sels ? sels[0] : null
         }
     },
 }
