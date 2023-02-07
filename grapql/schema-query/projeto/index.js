@@ -12,6 +12,7 @@ const typeDefs = gql`
         idade: Int
         salario: Float
         vip: Boolean
+        blabla: String
     }
 
     type Query {
@@ -22,6 +23,15 @@ const typeDefs = gql`
 `
 
 const resolvers = {
+    Usuario: {
+        salario(usuario){
+            return usuario.salario_real
+        },
+        blabla(usuario){
+            return 'Olá'
+        },
+
+    },
     Query: {
         ola() {
             return 'Bom dia!'
@@ -35,7 +45,7 @@ const resolvers = {
                 nome: 'Ana da Web',
                 email: 'anadawe@email.com',
                 idade: 23,
-                salario: 1234.56,
+                salario_real: 1234.56,
                 vip: true
             }
         }
